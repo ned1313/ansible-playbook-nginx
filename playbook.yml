@@ -3,16 +3,7 @@
   become: True
   tasks:
     - name: install nginx
-      apt: name=nginx update_cache=yes
-
-    - name: copy nginx config file
-      copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
-
-    - name: enable configuration
-      file: >
-        dest=/etc/nginx/sites-enabled/default
-        src=/etc/nginx/sites-available/default
-        state=link
+      shell: amazon-linux-extras install nginx1 -y
 
     - name: copy index.html
       template: src=templates/index.html.j2 dest=/usr/share/nginx/html/index.html

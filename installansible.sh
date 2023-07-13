@@ -1,2 +1,3 @@
-sudo apt-get update
-sudo apt-get install ansible -y
+sudo yum update
+sudo yum install git -y
+sudo amazon-linux-extras install ansible2 -y
